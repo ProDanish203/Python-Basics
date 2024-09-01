@@ -1,4 +1,5 @@
 import math
+import time
 
 print("Hello, World!")
 
@@ -134,3 +135,126 @@ print("Hello, World!")
 #         return 1
 #     return num * factorial(num - 1)
 # print(factorial(5))
+
+
+# # Object Oriented Programming In Python
+# class Car:
+#     total_car = 0
+
+#     def __init__(self, brand, model):
+#         self.__brand = brand
+#         self.__model = model
+#         Car.total_car += 1
+
+#     def get_brand(self):
+#         return self.__brand
+
+#     def print_details(self):
+#         return "Brand: ", self.__brand, "Model: ", self.__model
+
+#     @staticmethod
+#     def generate_report():
+#         return "Total Cars: ", Car.total_car
+
+#     # Read Only Property
+#     @property
+#     def model(self):
+#         return self.__model
+
+
+# # Inheritance
+# class ElectricCar(Car):
+#     def __init__(self, brand, model, battery_size):
+#         super().__init__(brand, model)
+#         self.battery_size = battery_size
+
+#     def print_details(self):
+#         return (
+#             "Brand: ",
+#             super().__brand,
+#             "Model: ",
+#             super().__model,
+#             "Battery Size: ",
+#             self.battery_size,
+#         )
+
+
+# car = Car("Toyota", "Corolla")
+# # another_car = Car("Honda", "Civic")
+# print(car.print_details())
+# # Print private attributes
+# # print(car.get_brand())
+# # print("Total Cars: ", Car.total_car)
+# # print(Car.generate_report())
+
+# # car.model = "Camry"
+# print(car.model)
+
+
+# ev_car = ElectricCar("Tesla", "Model S", 100)
+# # print(ev_car.print_details())
+
+# print(isinstance(ev_car, ElectricCar))
+# print(isinstance(ev_car, Car))
+
+
+# # Decorators In Python
+# def timer(func):
+#     def wrapper(*args, **kwargs):
+#         start = time.time()
+#         result = func(*args, **kwargs)
+#         end = time.time()
+#         print("Execution Time: ", end - start)
+#         return result
+
+#     return wrapper
+
+# @timer
+# def exm_function(n):
+#     time.sleep(n)
+#     print("Function Executed!")
+
+# exm_function(2)
+
+
+# def debug(func):
+#     def wrapper(*args, **kwargs):
+#         args_values = [str(arg) for arg in args]
+#         kwargs_values = [str(key) + "=" + str(value) for key, value in kwargs.items()]
+#         print("Function Name: ", func.__name__)
+#         print("Arguments: ", args_values, kwargs_values)
+#         return func(*args, **kwargs)
+
+#     return wrapper
+
+# @debug
+# def greet(name, greeting="Hello"):
+#     print(greeting + ", " + name + "!")
+
+# greet("Danish", greeting="Hi")
+
+# def cache(func):
+#     cache_value = {}
+#     print("Cache Value: ", cache_value)
+
+#     def wrapper(*args):
+#         if args in cache_value:
+#             return cache_value[args]
+#         result = func(*args)
+#         cache_value[args] = result
+#         return result
+
+#     return wrapper
+
+
+# @cache
+# def long_running_task(a, b):
+#     print("Task Started!")
+#     time.sleep(2)
+#     print("Task Completed!")
+#     return a + b
+
+
+# print(long_running_task(2, 3))
+# print(long_running_task(2, 3))
+# print(long_running_task(2, 4))
