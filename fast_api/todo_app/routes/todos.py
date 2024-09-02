@@ -11,7 +11,7 @@ todo = APIRouter()
 @todo.get("")
 def get_todos():
     try:
-        todos = todos_collection.find().to_list(length=None)
+        todos = todos_collection.find()
         return {"message": "List of todos", "data": TodosSchema(todos), "success": True}
     except mongo_errors.PyMongoError as e:
         raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
