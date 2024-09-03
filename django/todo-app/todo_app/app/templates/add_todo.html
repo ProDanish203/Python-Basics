@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}Add Todo{% endblock title %}
+{% block content %}
+<div class="container mx-auto">
+    <h1 class="text-3xl font-bold text-center mb-10">Add a Todo</h1>
+    <form method="POST" enctype="multipart/form-data" class="relative max-w-[500px] w-full mx-auto">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="py-2.5 px-10 w-full rounded-md bg-orange-500">Add Todo</button>
+    </form>
+</div>
+{% endblock %}

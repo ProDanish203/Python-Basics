@@ -1,0 +1,27 @@
+{% extends "layout.html" %} 
+{% block title %}
+Django Todo Application
+{% endblock title %} 
+{% block content %}
+<div class="container mx-auto">
+    <h1 class="text-3xl font-bold text-center mb-10">Todos</h1>
+    <div class="grid grid-cols-4 gap-5">
+        {% for todo in todos %}
+        <div class="flex flex-col gap-y-4 max-w-[350px] w-full py-2 px-2 bg-neutral-200 rounded-md">
+            <img src="{{todo.image.url}}" alt="{{todo.title}}" class="w-full h-[200px] object-cover rounded-md">
+            <div>
+                <h2 class="text-lg font-semibold">{{ todo.title }}</h2>
+                <p>{{ todo.description }}</p>
+                <p class="text-sm">Completed: {{ todo.completed }}</p>
+                <p class="text-sm">Created At: {{ todo.created_at }}</p>
+            </div>
+            <a href="{% url 'todo_details' todo.id %}">
+                <button class="py-2.5 px-6 w-full bg-orange-500 text-white rounded-md">View Details</button>
+            </a>
+            </div>
+        {% endfor %}
+    </div>
+    
+</div>
+
+{% endblock %} 

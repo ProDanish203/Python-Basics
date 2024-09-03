@@ -1,0 +1,32 @@
+{% load static tailwind_tags %} 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% tailwind_css %}
+    <title>
+      {% block title %}
+      Django Todo Application
+      {% endblock title %}
+    </title>
+  </head>
+  <body>
+    <header
+      class="flex items-center justify-between gap-x-8 !px-10 bg-orange-400 w-full"
+    >
+      <div class="text-red-500 text-3xl font-bold">Logo</div>
+      <nav>
+        <ul class="flex gap-x-4">
+          <li>
+            <a href="{% url 'add_todo' %}">Add Todo</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+  </body>
+</html>
